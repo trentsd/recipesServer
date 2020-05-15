@@ -16,12 +16,18 @@ public class CommentController {
         this.repository = repository;
     }
 
-    @GetMapping(path = "page/{pageId}")
+    // @GetMapping(path = "page/{pageId}")
+    // @CrossOrigin(origins = "http://localhost:4200")
+    // public Collection<Comment> pageComments(@PathVariable String pageId) {
+    //     return repository.findAll().stream()
+    //         .filter(c -> c.getPageid().toString().equals(pageId))
+    //         .collect(Collectors.toList());
+    // }
+
+    @GetMapping("/comments")
     @CrossOrigin(origins = "http://localhost:4200")
-    public Collection<Comment> pageComments(@PathVariable String pageId) {
-        return repository.findAll().stream()
-            .filter(c -> c.getPageid().toString().equals(pageId))
-            .collect(Collectors.toList());
+    public Collection<Comment> comments() {
+        return repository.findAll().stream().collect(Collectors.toList());
     }
 
     // private boolean isPageSeventeen(Comment comment) {
