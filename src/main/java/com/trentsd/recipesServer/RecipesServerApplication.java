@@ -20,13 +20,13 @@ public class RecipesServerApplication {
 			Stream.of("Sean", "Jon", "Pete").forEach(name -> {
 				Comment comment = new Comment();
 				comment.setName(name);
-				comment.setPageid(new Long(17)); //THIS WILL CHANGE WHEN PAGE ENTITIES ARE ADDED
+				comment.setPageid(new Long(1)); //THIS WILL CHANGE WHEN PAGE ENTITIES ARE ADDED
 				comment.setContent("THIS IS A TEST COMMENT");
 				repository.save(comment);
 			});
 			Comment diffComment = new Comment();
 			diffComment.setName("Different User");
-			diffComment.setPageid(new Long(7));
+			diffComment.setPageid(new Long(0));
 			diffComment.setContent("This comment is on a different page");
 			repository.save(diffComment);
 			repository.findAll().forEach(System.out::println);
